@@ -23,7 +23,8 @@ BEGIN
     FOR i IN 0..file_type_count - 1 LOOP
         current_file_type_name := 'type_' || i;
         RAISE NOTICE 'Начал работу с файловым типом %', current_file_type_name;
-        work_time := date_trunc('day', now() - '1 day'::interval);
+        random_seconds := floor(random() * 600)::int;
+        work_time := date_trunc('day', now() - '1 day'::interval) + (random_seconds || ' seconds')::interval;
         start_current_day := date_trunc('day', now());
         WHILE work_time < start_current_day LOOP
             INSERT INTO received_types (file_type, received_at) values (current_file_type_name, work_time);
