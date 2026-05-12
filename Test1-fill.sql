@@ -1,7 +1,7 @@
 DO $$
 DECLARE
     file_type_count int = 10;
-    big_file_type int = 0;
+    big_file_type int = 5; -- ID/код типа файла, который будет эмулировать создание увеличенной нагрузки на сервер
     bit_file_type_name varchar;
     work_time TIMESTAMP;
     start_current_day TIMESTAMP;
